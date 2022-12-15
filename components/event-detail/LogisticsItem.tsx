@@ -1,6 +1,11 @@
 import classes from "./LogisticsItem.module.css";
 
-const LogisticsItem = (props: any) => {
+type PropType = {
+  children: React.ReactNode;
+  icon: any;
+};
+
+const LogisticsItem: React.FC<PropType> = (props) => {
   const { icon: Icon } = props;
 
   return (
