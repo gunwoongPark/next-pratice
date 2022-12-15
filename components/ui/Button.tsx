@@ -4,14 +4,23 @@ import classes from "./Button.module.css";
 
 type PropType = {
   children: React.ReactNode;
-  link: string;
+  link?: string;
+  onClick?: () => void;
 };
 
 const Button: React.FC<PropType> = (props) => {
+  if (props.link) {
+    return (
+      <Link href={props.link} className={classes.btn}>
+        {props.children}
+      </Link>
+    );
+  }
+
   return (
-    <Link href={props.link} className={classes.btn}>
+    <button className={classes.btn} onClick={props.onClick}>
       {props.children}
-    </Link>
+    </button>
   );
 };
 
